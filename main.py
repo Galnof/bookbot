@@ -1,3 +1,4 @@
+# Houses variables for functions plus prints the final report.
 def main():
 	
     book_path = "books/frankenstein.txt"
@@ -7,16 +8,19 @@ def main():
     final_report = write_report(word_count, chars_dict)
     print(final_report)
 
+# Receives the book path and makes the book readable.
 def get_book(path):
 
     with open(path) as f:
         return f.read()
 
+# Receives the book text and counts the amount of words in the book.
 def count_words(book):
 
     words = book.split()
     return len(words)
 
+# Receives the book text and counts the amount of each specific letter and symbol in the book.
 def count_characters(book):
 
     characters = {}
@@ -28,6 +32,9 @@ def count_characters(book):
             characters[lowered] = 1
     return characters
 
+# Receives the word count and a dictionary of characters with the amount of times they occured. 
+# It writes the final report in a nice format that includes the word count and then in descending order, 
+# it says how many times each letter occurred but not the symbols.
 def write_report(word_count, chars_dict):
 
     report = f"--- Begin report of books/frankenstein.txt ---\n{word_count} words found in the document\n\n"
