@@ -4,6 +4,19 @@ def count_words(book):
     words = book.split()
     return len(words)
 
+# Receives the book text and returns a dictionary with
+# characters as keys and their frequencies as values.
+def count_characters(book):
+
+    characters = {}
+    for character in book:
+        lowered = character.lower()
+        if lowered in characters:
+            characters[lowered] += 1
+        else:
+            characters[lowered] = 1
+    return characters
+
 # Receives a dictionary of character counts
 # and returns a list of character count dictionaries
 # that are sorted in descending order by frequency.

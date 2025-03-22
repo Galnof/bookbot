@@ -1,5 +1,9 @@
 import sys
-from stats import count_words, chars_dict_to_sorted_list
+from stats import (
+    count_words, 
+    chars_dict_to_sorted_list, 
+    count_characters
+)
 
 # Coordinates the book analysis process and prints the final report.
 def main():
@@ -20,19 +24,6 @@ def get_book(path):
 
     with open(path) as f:
         return f.read()
-
-# Receives the book text and returns a dictionary with
-# characters as keys and their frequencies as values.
-def count_characters(book):
-
-    characters = {}
-    for character in book:
-        lowered = character.lower()
-        if lowered in characters:
-            characters[lowered] += 1
-        else:
-            characters[lowered] = 1
-    return characters
 
 # Generates a formatted report string containing:
 # - The total word count
